@@ -57,6 +57,10 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 ## Changelog
 
 
+### 0.1.12 (2026-03-22)
+
+- (Nexowatt) CI/metadata: mark the React Admin UI as **html** (`common.adminUI`) and adjust linting/CI.
+
 ### 0.1.11 (2026-03-20)
 
 - (Nexowatt) Admin UI migrated to React (restored device selection wizard).

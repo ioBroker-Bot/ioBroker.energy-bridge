@@ -5,6 +5,11 @@
 - (nothing yet)
 
 
+## 0.1.12 (2026-03-22)
+
+- CI/metadata: mark the React Admin UI as **html** (`common.adminUI`) and adjust linting/CI so "Test and Release" can pass.
+
+
 ## 0.1.11 (2026-03-20)
 
 - Admin UI migrated to a React-based configuration page (device selection wizard restored).

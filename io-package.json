@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "energy-bridge",
-    "version": "0.1.11",
+    "version": "0.1.12",
     "news": {
+      "0.1.12": {
+        "en": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "de": "Fix: Admin UI als HTML (React) markieren und CI/Lint anpassen, damit \"Test and Release\" grün wird."
+      },
       "0.1.11": {
         "en": "Admin UI migrated to React (restored device selection wizard).",
         "de": "Admin-UI auf React umgestellt (Geräte-Auswahl wiederhergestellt).",
@@ -80,19 +84,6 @@
         "pl": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
         "uk": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
         "zh-cn": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest."
-      },
-      "0.1.3": {
-        "en": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "de": "Wartungsrelease: Metadaten an ioBroker-Empfehlungen anpassen (Node.js >=20, Abhängigkeiten aktualisiert, protectedNative, Übersetzungen).",
-        "ru": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "pt": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "nl": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "fr": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "it": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "es": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "pl": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "uk": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations).",
-        "zh-cn": "Maintenance release: align metadata with ioBroker recommendations (Node.js >=20, updated dependencies, protectedNative, translations)."
       }
     },
     "titleLang": {
@@ -135,9 +126,10 @@
     "icon": "energy-bridge.svg",
     "extIcon": "https://raw.githubusercontent.com/NexoWatt/ioBroker.energy-bridge/main/admin/energy-bridge.svg",
     "adminUI": {
-      "config": "materialize"
+      "config": "html"
     },
     "keywords": [
+      "ioBroker",
       "1-wire",
       "battery",
       "bridge",
