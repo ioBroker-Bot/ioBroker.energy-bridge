@@ -57,6 +57,9 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 ## Changelog
 
 
+### 0.1.13 (2026-03-22)
+* (Nexowatt) Maintenance: fix repository-checker warnings and stabilize CI.
+
 ### 0.1.12 (2026-03-22)
 
 - (Nexowatt) CI/metadata: mark the React Admin UI as **html** (`common.adminUI`) and adjust linting/CI.

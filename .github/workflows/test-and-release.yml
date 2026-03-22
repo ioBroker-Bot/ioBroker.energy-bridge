@@ -23,6 +23,7 @@ jobs:
       - uses: ioBroker/testing-action-check@v1
         with:
           node-version: '20.x'
+          install-command: 'npm install'
           package-cache: 'false'
           lint: true
 
@@ -37,6 +38,7 @@ jobs:
       - uses: ioBroker/testing-action-adapter@v1
         with:
           node-version: ${{ matrix.node-version }}
+          install-command: 'npm install'
           os: ubuntu-latest
           package-cache: 'false'
 

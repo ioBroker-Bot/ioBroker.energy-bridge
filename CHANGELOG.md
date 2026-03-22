@@ -4,6 +4,13 @@
 
 - (nothing yet)
 
+## 0.1.13 (2026-03-22)
+
+- Repository-checker: remove forbidden io-package keywords and add full common.news translations.
+- CI: switch workflow install command to `npm install` to avoid sporadic `npm ci` failures.
+- Version bump.
+
+
 
 ## 0.1.12 (2026-03-22)
 

@@ -1,11 +1,33 @@
 {
   "common": {
     "name": "energy-bridge",
-    "version": "0.1.12",
+    "version": "0.1.13",
     "news": {
+      "0.1.13": {
+        "en": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "de": "Wartung: Repository-Checker-Warnungen behoben (Keywords/common.news) und CI stabilisiert.",
+        "ru": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "pt": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "nl": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "fr": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "it": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "es": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "pl": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "uk": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
+        "zh-cn": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI."
+      },
       "0.1.12": {
         "en": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "de": "Fix: Admin UI als HTML (React) markieren und CI/Lint anpassen, damit \"Test and Release\" grün wird."
+        "de": "Fix: Admin UI als HTML (React) markieren und CI/Lint anpassen, damit \"Test and Release\" grün wird.",
+        "ru": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "pt": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "nl": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "fr": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "it": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "es": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "pl": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "uk": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "zh-cn": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes."
       },
       "0.1.11": {
         "en": "Admin UI migrated to React (restored device selection wizard).",
@@ -71,19 +93,6 @@
         "pl": "Maintenance release: version bump and repository-checker compliance updates.",
         "uk": "Maintenance release: version bump and repository-checker compliance updates.",
         "zh-cn": "Maintenance release: version bump and repository-checker compliance updates."
-      },
-      "0.1.4": {
-        "en": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "de": "Wartungsrelease: Versionen (package.json/io-package.json) synchronisiert und Dokumentation für NPM latest aktualisiert.",
-        "ru": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "pt": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "nl": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "fr": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "it": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "es": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "pl": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "uk": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest.",
-        "zh-cn": "Maintenance release: synchronize versions (package.json/io-package.json) and update documentation for NPM latest."
       }
     },
     "titleLang": {
@@ -129,7 +138,6 @@
       "config": "html"
     },
     "keywords": [
-      "ioBroker",
       "1-wire",
       "battery",
       "bridge",
