@@ -23,6 +23,7 @@ jobs:
       - uses: ioBroker/testing-action-check@v1
         with:
           node-version: '20.x'
+          package-cache: 'false'
           lint: true
 
   adapter-tests:
@@ -37,6 +38,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           os: ubuntu-latest
+          package-cache: 'false'
 
   deploy:
     needs: [check-and-lint, adapter-tests]
@@ -55,3 +57,4 @@ jobs:
         with:
           node-version: '20.x'
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          package-cache: 'false'
