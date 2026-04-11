@@ -1,6 +1,6 @@
 {
   "name": "iobroker.energy-bridge",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "EnergyBridge - Community multi-protocol adapter for integrating energy devices into ioBroker (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP). Industrial templates intentionally excluded (e.g., TESVOLT Energy Manager, SMA Core1/STP125, industrial I/O modules, Alpitronic DC fast chargers).",
   "main": "main.js",
   "author": "Nexowatt",
@@ -34,7 +34,7 @@
     "main.js",
     "io-package.json",
     "README.md",
-    "CHANGELOG.md",
+    "CHANGELOG_OLD.md",
     "LICENSE"
   ],
   "dependencies": {
@@ -52,7 +52,7 @@
     "test:package": "npm pack --dry-run",
     "test:unit": "node test/unit.js",
     "test:integration": "node test/integration.js",
-    "lint": "eslint \"main.js\" \"lib/**/*.js\" \"test/**/*.js\"",
+    "lint": "eslint -c eslint.config.mjs .",
     "check": "npm run lint && npm test",
     "release": "release-script"
   },
@@ -63,8 +63,6 @@
     "@alcalzone/release-script-plugin-manual-review": "^5.1.1",
     "@iobroker/adapter-dev": "^1.5.0",
     "@iobroker/eslint-config": "^2.2.0",
-    "@iobroker/testing": "^5.2.2",
-    "eslint": "^9.32.0",
-    "react": "^18.2.0"
+    "@iobroker/testing": "^5.2.2"
   }
 }

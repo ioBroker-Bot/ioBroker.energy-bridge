@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "energy-bridge",
-    "version": "0.1.13",
+    "version": "0.1.14",
     "news": {
       "0.1.13": {
         "en": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
@@ -81,18 +81,18 @@
         "uk": "Documentation update: README is now English-only (repository-checker compliance).",
         "zh-cn": "Documentation update: README is now English-only (repository-checker compliance)."
       },
-      "0.1.5": {
-        "en": "Maintenance release: version bump and repository-checker compliance updates.",
-        "de": "Wartungsrelease: Versionsanhebung und Repository-Checker-Konformität.",
-        "ru": "Maintenance release: version bump and repository-checker compliance updates.",
-        "pt": "Maintenance release: version bump and repository-checker compliance updates.",
-        "nl": "Maintenance release: version bump and repository-checker compliance updates.",
-        "fr": "Maintenance release: version bump and repository-checker compliance updates.",
-        "it": "Maintenance release: version bump and repository-checker compliance updates.",
-        "es": "Maintenance release: version bump and repository-checker compliance updates.",
-        "pl": "Maintenance release: version bump and repository-checker compliance updates.",
-        "uk": "Maintenance release: version bump and repository-checker compliance updates.",
-        "zh-cn": "Maintenance release: version bump and repository-checker compliance updates."
+      "0.1.14": {
+        "en": "Adapter checker cleanup: jsonConfig admin UI, lint + CI updates, safer state IDs",
+        "de": "Adapter-Checker Bereinigung: jsonConfig Admin-UI, Lint + CI Updates, bessere State-IDs",
+        "ru": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
+        "pt": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
+        "nl": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
+        "fr": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
+        "it": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
+        "es": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
+        "pl": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
+        "uk": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
+        "zh-cn": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs"
       }
     },
     "titleLang": {
@@ -135,7 +135,7 @@
     "icon": "energy-bridge.svg",
     "extIcon": "https://raw.githubusercontent.com/NexoWatt/ioBroker.energy-bridge/main/admin/energy-bridge.svg",
     "adminUI": {
-      "config": "html"
+      "config": "json"
     },
     "keywords": [
       "1-wire",
@@ -173,7 +173,7 @@
     "pollIntervalMs": 5000,
     "modbusTimeoutMs": 2000,
     "registerAddressOffset": 0,
-    "devicesJson": "[]"
+    "devicesJson": []
   },
   "instanceObjects": [
     {
@@ -197,11 +197,5 @@
       },
       "native": {}
     }
-  ],
-  "encryptedNative": [
-    "devicesJson"
-  ],
-  "protectedNative": [
-    "devicesJson"
   ]
 }

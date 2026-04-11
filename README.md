@@ -22,7 +22,7 @@ For a German version of this documentation, see `README.de.md`.
 
 ## Implemented devices (overview)
 
-> The list below is only a short overview. Template definitions are stored in `admin/templates.json`.
+> The list below is only a short overview. Template definitions are stored in `lib/templates.json`.
 
 - **PV inverters:** FoxESS, Goodwe, KACO, Kostal, SMA (STPxx‑50, STPxx‑US‑41, Sunny Tripower X), SolaX, Solar‑Log, SunSpec, Victron
 - **Meters:** Janitza, Socomec, Siemens, Eastron, ABB, Carlo Gavazzi, Victron, SunSpec, M‑Bus, …
@@ -55,6 +55,14 @@ For a German version of this documentation, see `README.de.md`.
 It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-serial), [mqtt](https://www.npmjs.com/package/mqtt) and [axios](https://www.npmjs.com/package/axios) to communicate with devices.
 
 ## Changelog
+
+### 0.1.14 (2026-04-11)
+- (housekeeping) Switch admin UI to **jsonConfig** (responsive + theme aware)
+- (housekeeping) Update linting setup to @iobroker/eslint-config (flat config)
+- (housekeeping) Update CI test matrix (Node 20/22/24 + Linux/Windows/macOS)
+- (fix) Normalize datapoint state IDs (more readable)
+- (fix) Use node: imports for built-in modules
+- (fix) Remove code that modified system objects
 
 
 ### 0.1.13 (2026-03-22)

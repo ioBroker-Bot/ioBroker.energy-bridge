@@ -8,71 +8,48 @@
       "items": {
         "_alive": {
           "type": "alive",
+          "label": "Adapter status",
           "xs": 12,
-          "sm": 12,
-          "md": 12,
-          "lg": 12,
-          "xl": 12,
-          "textAlive": "Instance is running",
-          "textNotAlive": "Instance is not running"
-        },
-        "connection": {
-          "type": "state",
-          "label": "Connection",
-          "xs": 12,
-          "sm": 12,
-          "md": 6,
-          "lg": 6,
-          "xl": 6,
-          "oid": "info.connection",
-          "control": "switch",
-          "readOnly": true
+          "sm": 6,
+          "md": 3,
+          "lg": 2,
+          "xl": 2
         },
         "pollIntervalMs": {
           "type": "number",
-          "label": "Poll interval (ms)",
+          "label": "Global poll interval (ms)",
+          "help": "Global default poll interval for devices (can be overridden per device).",
+          "min": 250,
+          "step": 250,
           "xs": 12,
-          "sm": 12,
-          "md": 6,
-          "lg": 6,
-          "xl": 6,
-          "min": 1000,
-          "max": 600000,
-          "step": 100
+          "sm": 6,
+          "md": 3,
+          "lg": 2,
+          "xl": 2
         },
         "modbusTimeoutMs": {
           "type": "number",
           "label": "Modbus timeout (ms)",
+          "min": 250,
+          "step": 250,
           "xs": 12,
-          "sm": 12,
-          "md": 6,
-          "lg": 6,
-          "xl": 6,
-          "min": 200,
-          "max": 60000,
-          "step": 100
+          "sm": 6,
+          "md": 3,
+          "lg": 2,
+          "xl": 2
         },
         "registerAddressOffset": {
           "type": "number",
           "label": "Register address offset",
+          "help": "Some Modbus devices start addresses at 1 instead of 0. Use +1 to compensate.",
+          "min": -100000,
+          "max": 100000,
+          "step": 1,
           "xs": 12,
-          "sm": 12,
-          "md": 6,
-          "lg": 6,
-          "xl": 6,
-          "min": -10000,
-          "max": 10000,
-          "step": 1
-        },
-        "_note": {
-          "type": "staticText",
-          "xs": 12,
-          "sm": 12,
-          "md": 12,
-          "lg": 12,
-          "xl": 12,
-          "newLine": true,
-          "text": "Device definitions are configured in the Devices tab."
+          "sm": 6,
+          "md": 3,
+          "lg": 2,
+          "xl": 2
         }
       }
     },
@@ -83,23 +60,14 @@
         "devicesJson": {
           "type": "jsonEditor",
           "label": "Devices configuration (JSON)",
+          "help": "Provide an array of device configurations. See README.md for the structure and examples.",
           "xs": 12,
           "sm": 12,
           "md": 12,
           "lg": 12,
           "xl": 12,
-          "validateJson": true,
-          "allowEmpty": true
-        },
-        "_devicesHelp": {
-          "type": "staticText",
-          "xs": 12,
-          "sm": 12,
-          "md": 12,
-          "lg": 12,
-          "xl": 12,
-          "newLine": true,
-          "text": "The value must be a JSON array (e.g. []). Add your device definitions in the editor."
+          "json5": true,
+          "doNotApplyWithError": true
         }
       }
     }
