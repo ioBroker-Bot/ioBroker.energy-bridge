@@ -56,8 +56,13 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 
 ## Changelog
 
+### 0.1.15 (2026-04-11)
+- (fix) Switch admin UI back to **React template wizard** (Category → Manufacturer → Template)
+- (fix) Remove jsonConfig UI (device JSON editor was not usable for template selection)
+
+
 ### 0.1.14 (2026-04-11)
-- (housekeeping) Switch admin UI to **jsonConfig** (responsive + theme aware)
+- (housekeeping) Prepare Admin UI refactoring (jsonConfig experiment)
 - (housekeeping) Update linting setup to @iobroker/eslint-config (flat config)
 - (housekeeping) Update CI test matrix (Node 20/22/24 + Linux/Windows/macOS)
 - (fix) Normalize datapoint state IDs (more readable)

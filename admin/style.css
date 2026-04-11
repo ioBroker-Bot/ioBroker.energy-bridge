@@ -1,0 +1,103 @@
+/* EnergyBridge - Admin UI styling
+ *
+ * Keep the styling minimal and theme-friendly.
+ * ioBroker Admin supports light/dark themes; adapter.css + materialize.css
+ * provide the base look & feel. Do not force colors here.
+ */
+
+:root {
+  --eb-border: rgba(127, 127, 127, 0.25);
+  --eb-border-strong: rgba(127, 127, 127, 0.35);
+  --eb-muted: rgba(127, 127, 127, 0.75);
+}
+
+body {
+  background: transparent;
+  color: inherit;
+}
+
+.card {
+  border: 1px solid var(--eb-border);
+}
+
+.nexo-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nexo-title {
+  font-weight: 600;
+}
+
+.nexo-badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--eb-border-strong);
+}
+
+.nexo-meta {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: var(--eb-muted);
+}
+
+.nexo-hint {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--eb-border);
+  color: var(--eb-muted);
+}
+
+.nexo-json-preview {
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid var(--eb-border);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.nexo-devices-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actions .btn-small {
+  margin-right: 6px;
+}
+
+/* Responsive tables on narrow screens */
+@media (max-width: 720px) {
+  table.responsive-table thead {
+    display: none;
+  }
+
+  table.responsive-table tr {
+    display: block;
+    border: 1px solid var(--eb-border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 8px;
+  }
+
+  table.responsive-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+    border: none;
+  }
+
+  table.responsive-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    margin-right: 12px;
+  }
+}

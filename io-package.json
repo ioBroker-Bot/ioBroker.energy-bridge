@@ -1,20 +1,20 @@
 {
   "common": {
     "name": "energy-bridge",
-    "version": "0.1.14",
+    "version": "0.1.15",
     "news": {
-      "0.1.13": {
-        "en": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "de": "Wartung: Repository-Checker-Warnungen behoben (Keywords/common.news) und CI stabilisiert.",
-        "ru": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "pt": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "nl": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "fr": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "it": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "es": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "pl": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "uk": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI.",
-        "zh-cn": "Maintenance: fix repository-checker warnings (keywords/common.news) and stabilize CI."
+      "0.1.15": {
+        "en": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "de": "Admin-UI: zurück zum React-Template-Wizard (Kategorie → Hersteller → Template). jsonConfig entfernt, da es für die Template-basierte Geräteauswahl nicht praktikabel war.",
+        "ru": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "pt": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "nl": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "fr": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "it": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "es": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "pl": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "uk": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "zh-cn": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection."
       },
       "0.1.12": {
         "en": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
@@ -28,71 +28,6 @@
         "pl": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
         "uk": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
         "zh-cn": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes."
-      },
-      "0.1.11": {
-        "en": "Admin UI migrated to React (restored device selection wizard).",
-        "de": "Admin-UI auf React umgestellt (Geräte-Auswahl wiederhergestellt).",
-        "ru": "Admin UI migrated to React (restored device selection wizard).",
-        "pt": "Admin UI migrated to React (restored device selection wizard).",
-        "nl": "Admin UI migrated to React (restored device selection wizard).",
-        "fr": "Admin UI migrated to React (restored device selection wizard).",
-        "it": "Admin UI migrated to React (restored device selection wizard).",
-        "es": "Admin UI migrated to React (restored device selection wizard).",
-        "pl": "Admin UI migrated to React (restored device selection wizard).",
-        "uk": "Admin UI migrated to React (restored device selection wizard).",
-        "zh-cn": "Admin UI migrated to React (restored device selection wizard)."
-      },
-      "0.1.9": {
-        "en": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "de": "Fix: Fehlende Admin-i18n-Übersetzungsdateien und JSON-Config-Layoutgrößen ergänzt (Repository-Checker-Konformität).",
-        "ru": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "pt": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "nl": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "fr": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "it": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "es": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "pl": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "uk": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance).",
-        "zh-cn": "Fix: add missing Admin i18n translation files and JSON config layout sizes (repository-checker compliance)."
-      },
-      "0.1.7": {
-        "en": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "de": "Konfigurations-UI auf Admin-5 JSON-Config umgestellt (inkl. Live-Status).",
-        "ru": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "pt": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "nl": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "fr": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "it": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "es": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "pl": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "uk": "Switched configuration UI to Admin 5 JSON config (includes live status).",
-        "zh-cn": "Switched configuration UI to Admin 5 JSON config (includes live status)."
-      },
-      "0.1.6": {
-        "en": "Documentation update: README is now English-only (repository-checker compliance).",
-        "de": "Dokumentationsupdate: README ist jetzt nur noch auf Englisch (Repository-Checker-Konformität).",
-        "ru": "Documentation update: README is now English-only (repository-checker compliance).",
-        "pt": "Documentation update: README is now English-only (repository-checker compliance).",
-        "nl": "Documentation update: README is now English-only (repository-checker compliance).",
-        "fr": "Documentation update: README is now English-only (repository-checker compliance).",
-        "it": "Documentation update: README is now English-only (repository-checker compliance).",
-        "es": "Documentation update: README is now English-only (repository-checker compliance).",
-        "pl": "Documentation update: README is now English-only (repository-checker compliance).",
-        "uk": "Documentation update: README is now English-only (repository-checker compliance).",
-        "zh-cn": "Documentation update: README is now English-only (repository-checker compliance)."
-      },
-      "0.1.14": {
-        "en": "Adapter checker cleanup: jsonConfig admin UI, lint + CI updates, safer state IDs",
-        "de": "Adapter-Checker Bereinigung: jsonConfig Admin-UI, Lint + CI Updates, bessere State-IDs",
-        "ru": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
-        "pt": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
-        "nl": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
-        "fr": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
-        "it": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
-        "es": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
-        "pl": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
-        "uk": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs",
-        "zh-cn": "Cleanup: jsonConfig admin UI, lint/CI updates, safer state IDs"
       }
     },
     "titleLang": {
@@ -135,7 +70,7 @@
     "icon": "energy-bridge.svg",
     "extIcon": "https://raw.githubusercontent.com/NexoWatt/ioBroker.energy-bridge/main/admin/energy-bridge.svg",
     "adminUI": {
-      "config": "json"
+      "config": "html"
     },
     "keywords": [
       "1-wire",
