@@ -1,9 +1,0 @@
-{
-  "name": "energy-bridge-admin",
-  "private": true,
-  "description": "React-based Admin UI sources (build tooling placeholder) for ioBroker.energy-bridge",
-  "license": "MIT",
-  "devDependencies": {
-    "@iobroker/adapter-react-v5": "^8.0.21"
-  }
-}
