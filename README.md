@@ -56,6 +56,10 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 
 ## Changelog
 
+### 0.1.20 (2026-04-12)
+- (meta) Maintenance: fix repo checker warnings (Dependabot config/cooldown).
+
+
 ### 0.1.19 (2026-04-12)
 - (meta) Version bump / maintenance for React Admin UI.
 

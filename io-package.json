@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energy-bridge",
-    "version": "0.1.19",
+    "version": "0.1.20",
     "news": {
+      "0.1.20": {
+        "en": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "de": "Wartung: Repo-Checker-Warnungen behoben (Dependabot-Konfiguration/Cooldown, Cleanup).",
+        "ru": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "pt": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "nl": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "fr": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "it": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "es": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "pl": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "uk": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "zh-cn": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup)."
+      },
       "0.1.19": {
         "en": "Maintenance: version bump and repository-cleanup (React Admin UI).",
         "de": "Wartung: Versionsanhebung und Repository-Bereinigung (React Admin UI).",
