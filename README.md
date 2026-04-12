@@ -56,6 +56,10 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 
 ## Changelog
 
+### 0.1.19 (2026-04-12)
+- (meta) Version bump / maintenance for React Admin UI.
+
+
 ### 0.1.18 (2026-04-12)
 - (ci) Update Test & Release workflow (adapter-tests depends on check-and-lint, add deploy job; lint on Node 24)
 

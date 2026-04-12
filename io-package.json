@@ -1,46 +1,33 @@
 {
   "common": {
     "name": "energy-bridge",
-    "version": "0.1.18",
+    "version": "0.1.19",
     "news": {
-      "0.1.12": {
-        "en": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "de": "Fix: Admin UI als HTML (React) markieren und CI/Lint anpassen, damit \"Test and Release\" grün wird.",
-        "ru": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "pt": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "nl": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "fr": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "it": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "es": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "pl": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "uk": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
-        "zh-cn": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes."
+      "0.1.19": {
+        "en": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "de": "Wartung: Versionsanhebung und Repository-Bereinigung (React Admin UI).",
+        "ru": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "pt": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "nl": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "fr": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "it": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "es": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "pl": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "uk": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "zh-cn": "Maintenance: version bump and repository-cleanup (React Admin UI)."
       },
-      "0.1.15": {
-        "en": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "de": "Admin-UI: zurück zum React-Template-Wizard (Kategorie → Hersteller → Template). jsonConfig entfernt, da es für die Template-basierte Geräteauswahl nicht praktikabel war.",
-        "ru": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "pt": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "nl": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "fr": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "it": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "es": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "pl": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "uk": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
-        "zh-cn": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection."
-      },
-      "0.1.16": {
-        "en": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "de": "Admin-UI: modernes Styling (Dark/Light theme-aware, responsive Layout, sauberes Modal).",
-        "ru": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "pt": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "nl": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "fr": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "it": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "es": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "pl": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "uk": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
-        "zh-cn": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal)."
+      "0.1.18": {
+        "en": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "de": "CI: Test-&-Release-Workflow aktualisiert (needs check-and-lint; Deploy-Job; Lint mit Node 24).",
+        "ru": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "pt": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "nl": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "fr": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "it": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "es": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "pl": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "uk": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "zh-cn": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24)."
       },
       "0.1.17": {
         "en": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
@@ -55,18 +42,44 @@
         "uk": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
         "zh-cn": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection)."
       },
-      "0.1.18": {
-        "en": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "de": "CI: Test-&-Release-Workflow aktualisiert (needs check-and-lint; Deploy-Job; Lint mit Node 24).",
-        "ru": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "pt": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "nl": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "fr": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "it": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "es": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "pl": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "uk": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
-        "zh-cn": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24)."
+      "0.1.16": {
+        "en": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "de": "Admin-UI: modernes Styling (Dark/Light theme-aware, responsive Layout, sauberes Modal).",
+        "ru": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "pt": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "nl": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "fr": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "it": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "es": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "pl": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "uk": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "zh-cn": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal)."
+      },
+      "0.1.15": {
+        "en": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "de": "Admin-UI: zurück zum React-Template-Wizard (Kategorie → Hersteller → Template). jsonConfig entfernt, da es für die Template-basierte Geräteauswahl nicht praktikabel war.",
+        "ru": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "pt": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "nl": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "fr": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "it": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "es": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "pl": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "uk": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "zh-cn": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection."
+      },
+      "0.1.12": {
+        "en": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "de": "Fix: Admin UI als HTML (React) markieren und CI/Lint anpassen, damit \"Test and Release\" grün wird.",
+        "ru": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "pt": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "nl": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "fr": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "it": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "es": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "pl": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "uk": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes.",
+        "zh-cn": "Fix: mark Admin UI as HTML (React) and adjust CI/lint so \"Test and Release\" passes."
       }
     },
     "titleLang": {

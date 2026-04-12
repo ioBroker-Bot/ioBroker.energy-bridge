@@ -7,7 +7,6 @@ export default [
       'admin/**',
       // Large template file - not relevant for linting
       'lib/templates.json',
-      'CHANGELOG_OLD.md',
     ],
   },
 ];
