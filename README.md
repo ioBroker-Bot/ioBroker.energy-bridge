@@ -56,6 +56,9 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 
 ## Changelog
 
+### 0.1.18 (2026-04-12)
+- (ci) Update Test & Release workflow (adapter-tests depends on check-and-lint, add deploy job; lint on Node 24)
+
 ### 0.1.17 (2026-04-12)
 - (ui) Material-like Admin UI refresh (fancy cards/buttons, ripple, chips, improved theme detection)
 

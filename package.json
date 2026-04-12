@@ -1,6 +1,6 @@
 {
   "name": "iobroker.energy-bridge",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "EnergyBridge - Community multi-protocol adapter for integrating energy devices into ioBroker (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP). Industrial templates intentionally excluded (e.g., TESVOLT Energy Manager, SMA Core1/STP125, industrial I/O modules, Alpitronic DC fast chargers).",
   "main": "main.js",
   "author": "Nexowatt",
