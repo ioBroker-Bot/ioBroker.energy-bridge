@@ -27,7 +27,8 @@ jobs:
     steps:
       - uses: ioBroker/testing-action-check@v1
         with:
-          node-version: '20.x'
+          node-version: '22.x'
+          package-cache: 'false'
           # Uncomment the following line if your adapter cannot be installed using 'npm ci'
           # install-command: 'npm install'
           lint: true
@@ -37,6 +38,7 @@ jobs:
     if: github.event_name != 'push' || contains(github.event.head_commit.message, '[skip ci]') == false
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         node-version: [20.x, 22.x, 24.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
@@ -45,6 +47,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
+          package-cache: 'false'
           # Uncomment the following line if your adapter cannot be installed using 'npm ci'
           # install-command: 'npm install'
 
@@ -68,7 +71,8 @@ jobs:
   #   steps:
   #     - uses: ioBroker/testing-action-deploy@v1
   #       with:
-  #         node-version: '20.x'
+  #         node-version: '22.x'
+  #         package-cache: 'false'
   #         # Uncomment the following line if your adapter cannot be installed using 'npm ci'
   #         # install-command: 'npm install'
   #         github-token: ${{ secrets.GITHUB_TOKEN }}
