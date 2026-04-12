@@ -41,6 +41,25 @@
         // cross-origin or blocked - ignore
       }
 
+      // 0) Try explicit theme hints (data-theme attribute or known class names)
+      try {
+        const html = refDoc.documentElement;
+        const body = refDoc.body;
+        const attrTheme = String((html && html.getAttribute && html.getAttribute('data-theme')) || (body && body.getAttribute && body.getAttribute('data-theme')) || '').toLowerCase();
+        if (attrTheme) {
+          if (attrTheme.includes('dark')) return 'dark';
+          if (attrTheme.includes('light')) return 'light';
+        }
+
+        const cls = `${(html && html.className) || ''} ${(body && body.className) || ''}`.toLowerCase();
+        const hasDark = /\b(theme-dark|dark|mui-dark|material-dark|iobroker-dark)\b/.test(cls);
+        const hasLight = /\b(theme-light|light|mui-light|material-light|iobroker-light)\b/.test(cls);
+        if (hasDark && !hasLight) return 'dark';
+        if (hasLight && !hasDark) return 'light';
+      } catch (e) {
+        // ignore
+      }
+
       // 1) Try background colors
       const bgBody = window.getComputedStyle(refDoc.body).backgroundColor;
       let rgb = __eb_parseRgb(bgBody);
@@ -92,6 +111,44 @@
   } catch (e) {
     // ignore
   }
+
+  // Simple ripple effect for buttons (material-ish)
+  function __eb_installRipple() {
+    try {
+      document.addEventListener('pointerdown', ev => {
+        const btn = ev.target && ev.target.closest ? ev.target.closest('.nexo-btn') : null;
+        if (!btn || btn.disabled) return;
+
+        const rect = btn.getBoundingClientRect();
+        if (!rect || rect.width === 0 || rect.height === 0) return;
+
+        const size = Math.max(rect.width, rect.height) * 1.7;
+        const x = ev.clientX - rect.left - size / 2;
+        const y = ev.clientY - rect.top - size / 2;
+
+        const ripple = document.createElement('span');
+        ripple.className = 'nexo-ripple';
+        ripple.style.width = `${size}px`;
+        ripple.style.height = `${size}px`;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        const theme = document.documentElement.getAttribute('data-eb-theme');
+        const isDark = theme === 'dark';
+        const isAccent = btn.classList.contains('primary') || btn.classList.contains('danger');
+        ripple.style.background = isDark || isAccent ? 'var(--eb-ripple)' : 'var(--eb-ripple-dark)';
+
+        btn.appendChild(ripple);
+        ripple.addEventListener('animationend', () => {
+          try { ripple.remove(); } catch (e) { /* ignore */ }
+        });
+      }, { passive: true });
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  __eb_installRipple();
 
 
   function getLang() {
@@ -823,10 +880,10 @@
           })),
           h('td', { 'data-label': t('Device ID') }, String(d.id || '')),
           h('td', { 'data-label': t('Name') }, String(d.name || tpl.name || '')),
-          h('td', { 'data-label': t('Category') }, String(d.category || '')),
-          h('td', { 'data-label': t('Manufacturer') }, String(d.manufacturer || '')),
-          h('td', { 'data-label': t('Template') }, String(d.templateId || '')),
-          h('td', { 'data-label': t('Protocol') }, String(d.protocol || '')),
+          h('td', { 'data-label': t('Category') }, d.category ? h('span', { className: 'nexo-chip' }, String(d.category)) : ''),
+          h('td', { 'data-label': t('Manufacturer') }, d.manufacturer ? h('span', { className: 'nexo-chip' }, String(d.manufacturer)) : ''),
+          h('td', { 'data-label': t('Template') }, d.templateId ? h('span', { className: 'nexo-chip mono' }, String(d.templateId)) : ''),
+          h('td', { 'data-label': t('Protocol') }, d.protocol ? h('span', { className: 'nexo-chip' }, String(d.protocol)) : ''),
           h('td', { 'data-label': t('Actions') },
             h('div', { className: 'nexo-actions' }, [
               h('button', { type: 'button', className: 'nexo-btn', onClick: () => this.openDeviceModal('edit', idx) }, t('Edit device')),
@@ -968,98 +1025,116 @@
         if (d.protocol === 'modbusTcp') {
           return h('div', null, [
             h('h6', null, t('Modbus TCP connection')),
-            field(t('Host/IP'), c.host, v => this.updateDraftField('connection.host', v)),
-            numberField(t('Port'), c.port, v => this.updateDraftField('connection.port', v)),
-            numberField(t('Unit ID'), c.unitId, v => this.updateDraftField('connection.unitId', v)),
-            numberField(t('Timeout (ms)'), c.timeoutMs, v => this.updateDraftField('connection.timeoutMs', v)),
-            numberField(t('Addr offset'), c.addressOffset, v => this.updateDraftField('connection.addressOffset', v)),
-            field(t('Word order'), c.wordOrder, v => this.updateDraftField('connection.wordOrder', v)),
-            field(t('Byte order'), c.byteOrder, v => this.updateDraftField('connection.byteOrder', v)),
-            field(t('Write password (optional)'), '', v => this.updateDraftField('connection.writePassword', v), 'password'),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Host/IP'), c.host, v => this.updateDraftField('connection.host', v)),
+              numberField(t('Port'), c.port, v => this.updateDraftField('connection.port', v)),
+              numberField(t('Unit ID'), c.unitId, v => this.updateDraftField('connection.unitId', v)),
+              numberField(t('Timeout (ms)'), c.timeoutMs, v => this.updateDraftField('connection.timeoutMs', v)),
+              numberField(t('Addr offset'), c.addressOffset, v => this.updateDraftField('connection.addressOffset', v)),
+              field(t('Word order'), c.wordOrder, v => this.updateDraftField('connection.wordOrder', v)),
+              field(t('Byte order'), c.byteOrder, v => this.updateDraftField('connection.byteOrder', v)),
+              field(t('Write password (optional)'), '', v => this.updateDraftField('connection.writePassword', v), 'password'),
+            ]),
           ]);
         }
         if (d.protocol === 'modbusRtu' || d.protocol === 'modbusAscii') {
           return h('div', null, [
             h('h6', null, t('Serial port')),
-            field(t('Serial port'), c.path, v => this.updateDraftField('connection.path', v), 'text', '/dev/ttyUSB0'),
-            numberField(t('Baud rate'), c.baudRate, v => this.updateDraftField('connection.baudRate', v)),
-            field(t('Parity'), c.parity, v => this.updateDraftField('connection.parity', v)),
-            numberField(t('Data bits'), c.dataBits, v => this.updateDraftField('connection.dataBits', v)),
-            numberField(t('Stop bits'), c.stopBits, v => this.updateDraftField('connection.stopBits', v)),
-            numberField(t('Unit ID'), c.unitId, v => this.updateDraftField('connection.unitId', v)),
-            numberField(t('Timeout (ms)'), c.timeoutMs, v => this.updateDraftField('connection.timeoutMs', v)),
-            numberField(t('Addr offset'), c.addressOffset, v => this.updateDraftField('connection.addressOffset', v)),
-            field(t('Word order'), c.wordOrder, v => this.updateDraftField('connection.wordOrder', v)),
-            field(t('Byte order'), c.byteOrder, v => this.updateDraftField('connection.byteOrder', v)),
-            field(t('Write password (optional)'), '', v => this.updateDraftField('connection.writePassword', v), 'password'),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Serial port'), c.path, v => this.updateDraftField('connection.path', v), 'text', '/dev/ttyUSB0'),
+              numberField(t('Baud rate'), c.baudRate, v => this.updateDraftField('connection.baudRate', v)),
+              field(t('Parity'), c.parity, v => this.updateDraftField('connection.parity', v)),
+              numberField(t('Data bits'), c.dataBits, v => this.updateDraftField('connection.dataBits', v)),
+              numberField(t('Stop bits'), c.stopBits, v => this.updateDraftField('connection.stopBits', v)),
+              numberField(t('Unit ID'), c.unitId, v => this.updateDraftField('connection.unitId', v)),
+              numberField(t('Timeout (ms)'), c.timeoutMs, v => this.updateDraftField('connection.timeoutMs', v)),
+              numberField(t('Addr offset'), c.addressOffset, v => this.updateDraftField('connection.addressOffset', v)),
+              field(t('Word order'), c.wordOrder, v => this.updateDraftField('connection.wordOrder', v)),
+              field(t('Byte order'), c.byteOrder, v => this.updateDraftField('connection.byteOrder', v)),
+              field(t('Write password (optional)'), '', v => this.updateDraftField('connection.writePassword', v), 'password'),
+            ]),
           ]);
         }
         if (d.protocol === 'mbus') {
           return h('div', null, [
             h('h6', null, t('M-Bus connection')),
-            field(t('Serial port'), c.path, v => this.updateDraftField('connection.path', v), 'text', '/dev/ttyUSB0'),
-            numberField(t('Baud rate'), c.baudRate, v => this.updateDraftField('connection.baudRate', v)),
-            field(t('Parity'), c.parity, v => this.updateDraftField('connection.parity', v)),
-            numberField(t('Data bits'), c.dataBits, v => this.updateDraftField('connection.dataBits', v)),
-            numberField(t('Stop bits'), c.stopBits, v => this.updateDraftField('connection.stopBits', v)),
-            numberField(t('Unit ID'), c.unitId, v => this.updateDraftField('connection.unitId', v)),
-            numberField(t('Timeout (ms)'), c.timeoutMs, v => this.updateDraftField('connection.timeoutMs', v)),
-            checkboxField(t('Send NKE'), c.sendNke, v => this.updateDraftField('connection.sendNke', v)),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Serial port'), c.path, v => this.updateDraftField('connection.path', v), 'text', '/dev/ttyUSB0'),
+              numberField(t('Baud rate'), c.baudRate, v => this.updateDraftField('connection.baudRate', v)),
+              field(t('Parity'), c.parity, v => this.updateDraftField('connection.parity', v)),
+              numberField(t('Data bits'), c.dataBits, v => this.updateDraftField('connection.dataBits', v)),
+              numberField(t('Stop bits'), c.stopBits, v => this.updateDraftField('connection.stopBits', v)),
+              numberField(t('Unit ID'), c.unitId, v => this.updateDraftField('connection.unitId', v)),
+              numberField(t('Timeout (ms)'), c.timeoutMs, v => this.updateDraftField('connection.timeoutMs', v)),
+              checkboxField(t('Send NKE'), c.sendNke, v => this.updateDraftField('connection.sendNke', v)),
+            ]),
           ]);
         }
         if (d.protocol === 'mqtt') {
           return h('div', null, [
             h('h6', null, t('MQTT connection')),
-            field(t('Broker URL'), c.url, v => this.updateDraftField('connection.url', v), 'text', 'mqtt://host:1883'),
-            field(t('Username'), c.username, v => this.updateDraftField('connection.username', v)),
-            field(t('Password'), '', v => this.updateDraftField('connection.password', v), 'password'),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Broker URL'), c.url, v => this.updateDraftField('connection.url', v), 'text', 'mqtt://host:1883'),
+              field(t('Username'), c.username, v => this.updateDraftField('connection.username', v)),
+              field(t('Password'), '', v => this.updateDraftField('connection.password', v), 'password'),
+            ]),
           ]);
         }
         if (d.protocol === 'http') {
           return h('div', null, [
             h('h6', null, t('HTTP connection')),
-            field(t('Base URL'), c.baseUrl, v => this.updateDraftField('connection.baseUrl', v), 'text', 'https://device/api'),
-            field(t('Username'), c.username, v => this.updateDraftField('connection.username', v)),
-            field(t('Password'), '', v => this.updateDraftField('connection.password', v), 'password'),
-            field(t('Meter ID (optional)'), c.meterId, v => this.updateDraftField('connection.meterId', v)),
-            checkboxField(t('Allow insecure TLS'), !!c.insecureTls, v => this.updateDraftField('connection.insecureTls', v)),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Base URL'), c.baseUrl, v => this.updateDraftField('connection.baseUrl', v), 'text', 'https://device/api'),
+              field(t('Username'), c.username, v => this.updateDraftField('connection.username', v)),
+              field(t('Password'), '', v => this.updateDraftField('connection.password', v), 'password'),
+              field(t('Meter ID (optional)'), c.meterId, v => this.updateDraftField('connection.meterId', v)),
+              checkboxField(t('Allow insecure TLS'), !!c.insecureTls, v => this.updateDraftField('connection.insecureTls', v)),
+            ]),
           ]);
         }
         if (d.protocol === 'udp') {
           return h('div', null, [
             h('h6', null, t('UDP connection')),
-            field(t('Host/IP'), c.host, v => this.updateDraftField('connection.host', v)),
-            numberField(t('Port'), c.port, v => this.updateDraftField('connection.port', v)),
-            numberField(t('Timeout (ms)'), c.timeoutMs, v => this.updateDraftField('connection.timeoutMs', v)),
-            numberField(t('Command pause (ms)'), c.commandPauseMs, v => this.updateDraftField('connection.commandPauseMs', v)),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Host/IP'), c.host, v => this.updateDraftField('connection.host', v)),
+              numberField(t('Port'), c.port, v => this.updateDraftField('connection.port', v)),
+              numberField(t('Timeout (ms)'), c.timeoutMs, v => this.updateDraftField('connection.timeoutMs', v)),
+              numberField(t('Command pause (ms)'), c.commandPauseMs, v => this.updateDraftField('connection.commandPauseMs', v)),
+            ]),
           ]);
         }
         if (d.protocol === 'speedwire') {
           return h('div', null, [
             h('h6', null, t('Speedwire connection')),
-            field(t('Filter host (optional)'), c.filterHost, v => this.updateDraftField('connection.filterHost', v)),
-            field(t('Multicast group'), c.multicastGroup, v => this.updateDraftField('connection.multicastGroup', v)),
-            numberField(t('Port'), c.port, v => this.updateDraftField('connection.port', v)),
-            field(t('Interface address (optional)'), c.interfaceAddress, v => this.updateDraftField('connection.interfaceAddress', v)),
-            numberField(t('Stale timeout (ms)'), c.staleTimeoutMs, v => this.updateDraftField('connection.staleTimeoutMs', v)),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Filter host (optional)'), c.filterHost, v => this.updateDraftField('connection.filterHost', v)),
+              field(t('Multicast group'), c.multicastGroup, v => this.updateDraftField('connection.multicastGroup', v)),
+              numberField(t('Port'), c.port, v => this.updateDraftField('connection.port', v)),
+              field(t('Interface address (optional)'), c.interfaceAddress, v => this.updateDraftField('connection.interfaceAddress', v)),
+              numberField(t('Stale timeout (ms)'), c.staleTimeoutMs, v => this.updateDraftField('connection.staleTimeoutMs', v)),
+            ]),
           ]);
         }
         if (d.protocol === 'onewire') {
           return h('div', null, [
             h('h6', null, t('1-Wire connection')),
-            field(t('Base path'), c.basePath, v => this.updateDraftField('connection.basePath', v)),
-            field(t('Sensor ID'), c.sensorId, v => this.updateDraftField('connection.sensorId', v)),
-            field(t('File'), c.file, v => this.updateDraftField('connection.file', v)),
-            field(t('Parser'), c.parser, v => this.updateDraftField('connection.parser', v)),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Base path'), c.basePath, v => this.updateDraftField('connection.basePath', v)),
+              field(t('Sensor ID'), c.sensorId, v => this.updateDraftField('connection.sensorId', v)),
+              field(t('File'), c.file, v => this.updateDraftField('connection.file', v)),
+              field(t('Parser'), c.parser, v => this.updateDraftField('connection.parser', v)),
+            ]),
           ]);
         }
         if (d.protocol === 'canbus') {
           return h('div', null, [
             h('h6', null, t('CANbus connection')),
-            field(t('Interface'), c.interface, v => this.updateDraftField('connection.interface', v)),
-            field(t('candump args'), c.candumpArgs, v => this.updateDraftField('connection.candumpArgs', v)),
-            field(t('candump path'), c.candumpPath, v => this.updateDraftField('connection.candumpPath', v)),
-            field(t('cansend path'), c.cansendPath, v => this.updateDraftField('connection.cansendPath', v)),
+            h('div', { className: 'nexo-grid' }, [
+              field(t('Interface'), c.interface, v => this.updateDraftField('connection.interface', v)),
+              field(t('candump args'), c.candumpArgs, v => this.updateDraftField('connection.candumpArgs', v)),
+              field(t('candump path'), c.candumpPath, v => this.updateDraftField('connection.candumpPath', v)),
+              field(t('cansend path'), c.cansendPath, v => this.updateDraftField('connection.cansendPath', v)),
+            ]),
           ]);
         }
         return null;
@@ -1079,15 +1154,17 @@
             ])
             : null,
 
-          checkboxField(t('Device enabled'), !!d.enabled, v => this.updateDraftField('enabled', v)),
-          field(t('Device ID'), d.id, v => this.updateDraftField('id', v)),
-          field(t('Name'), d.name, v => this.updateDraftField('name', v)),
-          categoryField(),
-          manufacturerField(),
-          templateField(),
-          protocolField(),
-          numberField(t('Poll interval (ms, optional)'), d.pollIntervalMs, v => this.updateDraftField('pollIntervalMs', v)),
-          numberField(t('Heartbeat timeout (ms, optional)'), d.heartbeatTimeoutMs, v => this.updateDraftField('heartbeatTimeoutMs', v)),
+          h('div', { className: 'nexo-grid' }, [
+            checkboxField(t('Device enabled'), !!d.enabled, v => this.updateDraftField('enabled', v)),
+            field(t('Device ID'), d.id, v => this.updateDraftField('id', v)),
+            field(t('Name'), d.name, v => this.updateDraftField('name', v)),
+            categoryField(),
+            manufacturerField(),
+            templateField(),
+            protocolField(),
+            numberField(t('Poll interval (ms, optional)'), d.pollIntervalMs, v => this.updateDraftField('pollIntervalMs', v)),
+            numberField(t('Heartbeat timeout (ms, optional)'), d.heartbeatTimeoutMs, v => this.updateDraftField('heartbeatTimeoutMs', v)),
+          ]),
           h('div', { className: 'nexo-divider' }),
           connectionFields(),
           h('div', { className: 'nexo-modal-actions' }, [

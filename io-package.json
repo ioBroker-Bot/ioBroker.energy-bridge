@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energy-bridge",
-    "version": "0.1.16",
+    "version": "0.1.17",
     "news": {
+      "0.1.17": {
+        "en": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "de": "Admin-UI: Material-Design-Refresh (fancy Cards/Buttons, Ripple, Chips, bessere Theme-Erkennung).",
+        "ru": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "pt": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "nl": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "fr": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "it": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "es": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "pl": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "uk": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "zh-cn": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection)."
+      },
       "0.1.16": {
         "en": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
         "de": "Admin-UI: modernes Styling (Dark/Light theme-aware, responsive Layout, sauberes Modal).",

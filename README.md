@@ -56,6 +56,9 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 
 ## Changelog
 
+### 0.1.17 (2026-04-12)
+- (ui) Material-like Admin UI refresh (fancy cards/buttons, ripple, chips, improved theme detection)
+
 ### 0.1.16 (2026-04-11)
 - (ui) Modern Admin UI styling (responsive layout, proper modal, dark/light theme-aware colors)
 
