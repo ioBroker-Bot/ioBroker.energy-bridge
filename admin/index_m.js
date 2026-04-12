@@ -4,6 +4,96 @@
 (function () {
   const h = React.createElement;
 
+  // Detect Admin theme (dark/light) and expose it as attribute for CSS.
+  // We try to detect via computed background color first and fall back to prefers-color-scheme.
+  function __eb_parseRgb(color) {
+    if (!color) return null;
+    const c = color.trim().toLowerCase();
+    if (c === 'transparent') return null;
+    const m = c.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?\)$/);
+    if (!m) return null;
+    const r = Number(m[1]);
+    const g = Number(m[2]);
+    const b = Number(m[3]);
+    const a = m[4] !== undefined ? Number(m[4]) : 1;
+    if (!Number.isFinite(r) || !Number.isFinite(g) || !Number.isFinite(b) || !Number.isFinite(a)) return null;
+    if (a === 0) return null;
+    return { r, g, b, a };
+  }
+
+  function __eb_luminance(rgb) {
+    // sRGB relative luminance (approx.)
+    const srgb = [rgb.r, rgb.g, rgb.b].map(v => v / 255);
+    const lin = srgb.map(v => (v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)));
+    return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2];
+  }
+
+  function __eb_detectTheme() {
+    try {
+      // Prefer the parent document (ioBroker Admin) because the config page
+      // might have a transparent background.
+      let refDoc = document;
+      try {
+        if (window.parent && window.parent.document && window.parent.document.body) {
+          refDoc = window.parent.document;
+        }
+      } catch (e) {
+        // cross-origin or blocked - ignore
+      }
+
+      // 1) Try background colors
+      const bgBody = window.getComputedStyle(refDoc.body).backgroundColor;
+      let rgb = __eb_parseRgb(bgBody);
+      if (!rgb) {
+        const bgHtml = window.getComputedStyle(refDoc.documentElement).backgroundColor;
+        rgb = __eb_parseRgb(bgHtml);
+      }
+      if (rgb) {
+        const lum = __eb_luminance(rgb);
+        return lum < 0.5 ? 'dark' : 'light';
+      }
+
+      // 2) Fallback: infer from text color (light text usually means dark theme)
+      const col = window.getComputedStyle(refDoc.body).color;
+      const cRgb = __eb_parseRgb(col);
+      if (cRgb) {
+        const lum = __eb_luminance(cRgb);
+        if (lum > 0.6) return 'dark';
+        if (lum < 0.4) return 'light';
+      }
+    } catch (e) {
+      // ignore
+    }
+
+    // 3) Last fallback: OS preference
+    try {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    } catch (e) {
+      return 'light';
+    }
+  }
+
+  function __eb_applyTheme() {
+    const theme = __eb_detectTheme();
+    document.documentElement.setAttribute('data-eb-theme', theme);
+  }
+
+  // Initial + live update
+  __eb_applyTheme();
+  try {
+    if (window.matchMedia) {
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mql && typeof mql.addEventListener === 'function') {
+        mql.addEventListener('change', __eb_applyTheme);
+      } else if (mql && typeof mql.addListener === 'function') {
+        mql.addListener(__eb_applyTheme);
+      }
+    }
+  } catch (e) {
+    // ignore
+  }
+
+
   function getLang() {
     return (typeof window !== 'undefined' && (window.systemLang || systemLang)) || 'en';
   }
@@ -722,7 +812,7 @@
       const rows = devices.map((d, idx) => {
         const tpl = (this.state.templatesById || {})[d.templateId] || {};
         return h('tr', { key: `${d.id || idx}` }, [
-          h('td', null, h('input', {
+          h('td', { 'data-label': t('Enabled') }, h('input', {
             type: 'checkbox',
             checked: !!d.enabled,
             onChange: ev => {
@@ -731,13 +821,13 @@
               this.setState({ devices: list }, () => this.markChanged());
             },
           })),
-          h('td', null, String(d.id || '')),
-          h('td', null, String(d.name || tpl.name || '')),
-          h('td', null, String(d.category || '')),
-          h('td', null, String(d.manufacturer || '')),
-          h('td', null, String(d.templateId || '')),
-          h('td', null, String(d.protocol || '')),
-          h('td', null,
+          h('td', { 'data-label': t('Device ID') }, String(d.id || '')),
+          h('td', { 'data-label': t('Name') }, String(d.name || tpl.name || '')),
+          h('td', { 'data-label': t('Category') }, String(d.category || '')),
+          h('td', { 'data-label': t('Manufacturer') }, String(d.manufacturer || '')),
+          h('td', { 'data-label': t('Template') }, String(d.templateId || '')),
+          h('td', { 'data-label': t('Protocol') }, String(d.protocol || '')),
+          h('td', { 'data-label': t('Actions') },
             h('div', { className: 'nexo-actions' }, [
               h('button', { type: 'button', className: 'nexo-btn', onClick: () => this.openDeviceModal('edit', idx) }, t('Edit device')),
               h('button', { type: 'button', className: 'nexo-btn danger', onClick: () => this.deleteDevice(idx) }, t('Delete')),

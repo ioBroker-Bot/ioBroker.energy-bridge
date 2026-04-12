@@ -1,81 +1,357 @@
-/* EnergyBridge - Admin UI styling
+/* EnergyBridge - Admin UI (React wizard)
  *
- * Keep the styling minimal and theme-friendly.
- * ioBroker Admin supports light/dark themes; adapter.css + materialize.css
- * provide the base look & feel. Do not force colors here.
+ * Goals:
+ * - modern, clean look (cards, buttons, modal)
+ * - theme aware (dark/light)
+ * - responsive (mobile friendly)
+ *
+ * We do NOT rely on Materialize form markup. All elements are styled via the
+ * .nexo-* classes used by the React UI.
  */
 
 :root {
-  --eb-border: rgba(127, 127, 127, 0.25);
-  --eb-border-strong: rgba(127, 127, 127, 0.35);
-  --eb-muted: rgba(127, 127, 127, 0.75);
+  /* Let the browser render native controls (checkbox/select) theme-aware */
+  color-scheme: light dark;
+
+  --eb-radius: 14px;
+  --eb-radius-sm: 10px;
+  --eb-gap: 12px;
+
+  --eb-font: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+
+  /* Light defaults (overridden via [data-eb-theme="dark"]) */
+  --eb-text: #111827;
+  --eb-muted: rgba(17, 24, 39, 0.7);
+  --eb-border: rgba(17, 24, 39, 0.14);
+
+  --eb-surface: rgba(255, 255, 255, 0.9);
+  --eb-surface-2: rgba(255, 255, 255, 0.65);
+
+  --eb-input-bg: rgba(255, 255, 255, 0.95);
+
+  --eb-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --eb-shadow-strong: 0 18px 50px rgba(0, 0, 0, 0.18);
+
+  --eb-accent: #2563eb;
+  --eb-accent-2: rgba(37, 99, 235, 0.18);
+
+  --eb-danger: #dc2626;
+  --eb-danger-2: rgba(220, 38, 38, 0.18);
+
+  --eb-backdrop: rgba(0, 0, 0, 0.35);
+}
+
+/* Force dark theme when detected by JS */
+:root[data-eb-theme="dark"] {
+  --eb-text: rgba(255, 255, 255, 0.92);
+  --eb-muted: rgba(255, 255, 255, 0.68);
+  --eb-border: rgba(255, 255, 255, 0.16);
+
+  --eb-surface: rgba(20, 22, 28, 0.86);
+  --eb-surface-2: rgba(20, 22, 28, 0.55);
+
+  --eb-input-bg: rgba(10, 12, 16, 0.55);
+
+  --eb-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --eb-shadow-strong: 0 18px 50px rgba(0, 0, 0, 0.60);
+
+  --eb-accent: #60a5fa;
+  --eb-accent-2: rgba(96, 165, 250, 0.18);
+
+  --eb-danger: #f87171;
+  --eb-danger-2: rgba(248, 113, 113, 0.18);
+
+  --eb-backdrop: rgba(0, 0, 0, 0.55);
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
+  margin: 0;
+  padding: 12px;
+  font-family: var(--eb-font);
+  color: var(--eb-text);
   background: transparent;
-  color: inherit;
 }
 
-.card {
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h5, h6 {
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  color: var(--eb-text);
+}
+
+/* ---------- Layout containers ---------- */
+
+.nexo-card {
+  background: var(--eb-surface);
   border: 1px solid var(--eb-border);
+  border-radius: var(--eb-radius);
+  padding: 14px;
+  box-shadow: var(--eb-shadow);
+  margin: 14px 0;
+}
+
+.card.nexo-header {
+  border-radius: var(--eb-radius);
+  border: 1px solid var(--eb-border);
+  background: var(--eb-surface);
+  box-shadow: var(--eb-shadow);
+}
+
+.card.nexo-header .card-content {
+  padding: 14px 16px;
 }
 
 .nexo-header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
+}
+
+.nexo-icon {
+  width: 46px;
+  height: 46px;
+  display: block;
 }
 
 .nexo-title {
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 750;
 }
 
-.nexo-badge {
-  display: inline-block;
-  font-size: 12px;
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid var(--eb-border-strong);
+.nexo-subtitle {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.nexo-muted {
+  color: var(--eb-muted);
 }
 
 .nexo-meta {
-  margin: 0 0 10px 0;
-  font-size: 0.9rem;
-  color: var(--eb-muted);
-}
-
-.nexo-hint {
-  margin: 0;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid var(--eb-border);
-  color: var(--eb-muted);
-}
-
-.nexo-json-preview {
-  max-height: 240px;
-  overflow: auto;
-  border: 1px solid var(--eb-border);
-  padding: 10px;
-  border-radius: 8px;
-}
-
-.nexo-devices-header {
   display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--eb-muted);
+  min-width: 220px;
+  align-items: flex-end;
+}
+
+@media (max-width: 720px) {
+  .nexo-meta {
+    align-items: flex-start;
+    min-width: unset;
+  }
+}
+
+/* Status badges */
+.nexo-badge {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--eb-border);
+  background: var(--eb-surface-2);
+  color: var(--eb-text);
+  margin-right: 8px;
+}
+
+/* ---------- Tabs ---------- */
+
+.nexo-tabs {
+  margin-top: 12px;
+  display: inline-flex;
+  background: var(--eb-surface-2);
+  border: 1px solid var(--eb-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.nexo-tab {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--eb-muted);
+  font-weight: 700;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.nexo-tab:hover {
+  color: var(--eb-text);
+}
+
+.nexo-tab.active {
+  background: var(--eb-surface);
+  color: var(--eb-text);
+}
+
+/* ---------- Buttons ---------- */
+
+.nexo-actions {
+  display: flex;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-.actions .btn-small {
-  margin-right: 6px;
+.nexo-btn {
+  appearance: none;
+  border: 1px solid var(--eb-border);
+  background: var(--eb-surface-2);
+  color: var(--eb-text);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 80ms ease, background-color 120ms ease, border-color 120ms ease;
 }
 
-/* Responsive tables on narrow screens */
-@media (max-width: 720px) {
+.nexo-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(127, 127, 127, 0.35);
+}
+
+.nexo-btn:active {
+  transform: translateY(0px);
+}
+
+.nexo-btn.primary {
+  border-color: var(--eb-accent);
+  background: var(--eb-accent);
+  color: white;
+}
+
+:root[data-eb-theme="dark"] .nexo-btn.primary {
+  color: #0b1220;
+}
+
+.nexo-btn.danger {
+  border-color: var(--eb-danger);
+  background: var(--eb-danger);
+  color: white;
+}
+
+:root[data-eb-theme="dark"] .nexo-btn.danger {
+  color: #1a0b0b;
+}
+
+/* ---------- Form fields ---------- */
+
+.nexo-field {
+  margin: 10px 0;
+}
+
+.nexo-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--eb-muted);
+  margin-bottom: 6px;
+}
+
+.nexo-input,
+.nexo-select,
+.nexo-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: var(--eb-radius-sm);
+  border: 1px solid var(--eb-border);
+  background: var(--eb-input-bg);
+  color: var(--eb-text);
+  outline: none;
+}
+
+.nexo-input::placeholder,
+.nexo-textarea::placeholder {
+  color: rgba(127, 127, 127, 0.7);
+}
+
+:root[data-eb-theme="dark"] .nexo-input::placeholder,
+:root[data-eb-theme="dark"] .nexo-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.nexo-input:focus,
+.nexo-select:focus,
+.nexo-textarea:focus {
+  border-color: var(--eb-accent);
+  box-shadow: 0 0 0 4px var(--eb-accent-2);
+}
+
+.nexo-help {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--eb-muted);
+  line-height: 1.35;
+}
+
+.nexo-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nexo-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--eb-accent);
+}
+
+/* ---------- Divider ---------- */
+
+.nexo-divider {
+  height: 1px;
+  background: var(--eb-border);
+  margin: 14px 0;
+}
+
+/* ---------- Tables ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead th {
+  text-align: left;
+  font-size: 12px;
+  color: var(--eb-muted);
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--eb-border);
+}
+
+table tbody td {
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--eb-border);
+  vertical-align: top;
+}
+
+table tbody tr:hover {
+  background: rgba(127, 127, 127, 0.06);
+}
+
+:root[data-eb-theme="dark"] table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Make tables usable on mobile */
+@media (max-width: 820px) {
   table.responsive-table thead {
     display: none;
   }
@@ -83,21 +359,98 @@ body {
   table.responsive-table tr {
     display: block;
     border: 1px solid var(--eb-border);
-    border-radius: 8px;
-    margin-bottom: 10px;
-    padding: 8px;
+    border-radius: var(--eb-radius);
+    margin-bottom: 12px;
+    padding: 10px;
+    background: var(--eb-surface-2);
   }
 
   table.responsive-table td {
     display: flex;
     justify-content: space-between;
-    padding: 6px 8px;
+    gap: 16px;
+    padding: 8px 4px;
     border: none;
   }
 
   table.responsive-table td::before {
     content: attr(data-label);
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--eb-muted);
     margin-right: 12px;
   }
+}
+
+/* ---------- Errors / hints ---------- */
+
+.nexo-error {
+  background: var(--eb-danger-2);
+  border: 1px solid var(--eb-danger);
+  color: var(--eb-text);
+  border-radius: var(--eb-radius);
+  padding: 10px 12px;
+  margin: 12px 0;
+}
+
+.nexo-hint {
+  background: var(--eb-surface-2);
+  border: 1px solid var(--eb-border);
+  border-radius: var(--eb-radius);
+  padding: 10px 12px;
+  margin: 10px 0;
+  color: var(--eb-muted);
+}
+
+/* ---------- Modal ---------- */
+
+.nexo-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--eb-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.nexo-modal {
+  width: min(980px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--eb-surface);
+  border: 1px solid var(--eb-border);
+  border-radius: calc(var(--eb-radius) + 2px);
+  box-shadow: var(--eb-shadow-strong);
+  padding: 14px 16px;
+}
+
+.nexo-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--eb-border);
+  margin-bottom: 12px;
+}
+
+.nexo-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--eb-border);
+}
+
+/* Make headings inside modal readable */
+.nexo-modal h6 {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+/* Tiny improvements for numbers */
+input[type="number"].nexo-input {
+  font-variant-numeric: tabular-nums;
 }

@@ -56,6 +56,10 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 
 ## Changelog
 
+### 0.1.16 (2026-04-11)
+- (ui) Modern Admin UI styling (responsive layout, proper modal, dark/light theme-aware colors)
+
+
 ### 0.1.15 (2026-04-11)
 - (fix) Switch admin UI back to **React template wizard** (Category → Manufacturer → Template)
 - (fix) Remove jsonConfig UI (device JSON editor was not usable for template selection)
