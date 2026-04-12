@@ -1,0 +1,67 @@
+{
+  "name": "iobroker.energy-bridge",
+  "version": "0.1.21",
+  "description": "EnergyBridge - Community multi-protocol adapter for integrating energy devices into ioBroker (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP). Industrial templates intentionally excluded (e.g., TESVOLT Energy Manager, SMA Core1/STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+  "main": "main.js",
+  "author": "Nexowatt",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NexoWatt/ioBroker.energy-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NexoWatt/ioBroker.energy-bridge/issues"
+  },
+  "homepage": "https://github.com/NexoWatt/ioBroker.energy-bridge#readme",
+  "keywords": [
+    "ioBroker",
+    "adapter",
+    "energy",
+    "bridge",
+    "modbus",
+    "mqtt",
+    "http",
+    "udp",
+    "pv",
+    "inverter",
+    "meter",
+    "evcs",
+    "battery"
+  ],
+  "files": [
+    "admin",
+    "lib",
+    "main.js",
+    "io-package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@iobroker/adapter-core": "^3.3.2",
+    "axios": "^1.7.2",
+    "modbus-serial": "^8.0.16",
+    "mqtt": "^5.10.0",
+    "serialport": "^13.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "npm run test:package && npm run test:unit && npm run test:integration",
+    "test:package": "npm pack --dry-run",
+    "test:unit": "node test/unit.js",
+    "test:integration": "node test/integration.js",
+    "lint": "eslint -c eslint.config.mjs .",
+    "check": "npm run lint && npm test",
+    "release": "release-script"
+  },
+  "devDependencies": {
+    "@alcalzone/release-script": "^5.1.1",
+    "@alcalzone/release-script-plugin-iobroker": "^5.1.2",
+    "@alcalzone/release-script-plugin-license": "^5.1.1",
+    "@alcalzone/release-script-plugin-manual-review": "^5.1.1",
+    "@iobroker/adapter-dev": "^1.5.0",
+    "@iobroker/eslint-config": "^2.2.0",
+    "@iobroker/testing": "^5.2.2"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "common": {
+    "name": "energy-bridge",
+    "version": "0.1.21",
+    "news": {
+      "0.1.21": {
+        "en": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "de": "Wartung: CHANGELOG_OLD.md hinzugefügt und Legacy-jsonConfig-Artefakte bereinigt (React Admin UI bleibt).",
+        "ru": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "pt": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "nl": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "fr": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "it": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "es": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "pl": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "uk": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI).",
+        "zh-cn": "Maintenance: add CHANGELOG_OLD.md and cleanup of legacy jsonConfig artifacts (keep React Admin UI)."
+      },
+      "0.1.20": {
+        "en": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "de": "Wartung: Repo-Checker-Warnungen behoben (Dependabot-Konfiguration/Cooldown, Cleanup).",
+        "ru": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "pt": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "nl": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "fr": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "it": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "es": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "pl": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "uk": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup).",
+        "zh-cn": "Maintenance: fix repo checker warnings (Dependabot config/cooldown, cleanup)."
+      },
+      "0.1.19": {
+        "en": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "de": "Wartung: Versionsanhebung und Repository-Bereinigung (React Admin UI).",
+        "ru": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "pt": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "nl": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "fr": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "it": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "es": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "pl": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "uk": "Maintenance: version bump and repository-cleanup (React Admin UI).",
+        "zh-cn": "Maintenance: version bump and repository-cleanup (React Admin UI)."
+      },
+      "0.1.18": {
+        "en": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "de": "CI: Test-&-Release-Workflow aktualisiert (needs check-and-lint; Deploy-Job; Lint mit Node 24).",
+        "ru": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "pt": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "nl": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "fr": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "it": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "es": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "pl": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "uk": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24).",
+        "zh-cn": "CI: Update Test & Release workflow (needs check-and-lint; add deploy job; lint on Node 24)."
+      },
+      "0.1.17": {
+        "en": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "de": "Admin-UI: Material-Design-Refresh (fancy Cards/Buttons, Ripple, Chips, bessere Theme-Erkennung).",
+        "ru": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "pt": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "nl": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "fr": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "it": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "es": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "pl": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "uk": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection).",
+        "zh-cn": "Admin UI: Material-like design refresh (fancy cards/buttons, ripple, chips, improved theme detection)."
+      },
+      "0.1.16": {
+        "en": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "de": "Admin-UI: modernes Styling (Dark/Light theme-aware, responsive Layout, sauberes Modal).",
+        "ru": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "pt": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "nl": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "fr": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "it": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "es": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "pl": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "uk": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal).",
+        "zh-cn": "Admin UI: modern styling (theme-aware dark/light, responsive layout, proper modal)."
+      },
+      "0.1.15": {
+        "en": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "de": "Admin-UI: zurück zum React-Template-Wizard (Kategorie → Hersteller → Template). jsonConfig entfernt, da es für die Template-basierte Geräteauswahl nicht praktikabel war.",
+        "ru": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "pt": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "nl": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "fr": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "it": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "es": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "pl": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "uk": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection.",
+        "zh-cn": "Admin UI: switch back to React template wizard (Category → Manufacturer → Template). jsonConfig removed because it was not usable for template-based device selection."
+      }
+    },
+    "titleLang": {
+      "en": "EnergyBridge",
+      "de": "EnergyBridge",
+      "ru": "EnergyBridge",
+      "pt": "EnergyBridge",
+      "nl": "EnergyBridge",
+      "fr": "EnergyBridge",
+      "it": "EnergyBridge",
+      "es": "EnergyBridge",
+      "pl": "EnergyBridge",
+      "uk": "EnergyBridge",
+      "zh-cn": "EnergyBridge"
+    },
+    "desc": {
+      "en": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "de": "EnergyBridge ist ein Multi‑Protokoll‑Adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP), der Geräte über Templates (Kategorien → Hersteller → Template) integriert und die States in ioBroker automatisch anlegt.\n\nUnterstützt (Auszug): PV‑Wechselrichter (Goodwe, SMA, Kostal, Solar‑Log, SunSpec …), Zähler (Janitza, Socomec, Siemens, Eastron, Victron …), Wallboxen (go‑e, KEBA, ABL, openWB, Webasto, Mennekes …), Speicher/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), Wärme/Heizung (TECALOR, LAMBDA, myPV …), IO (Shelly, 1‑Wire).\n\nIndustrie‑Templates sind bewusst nicht enthalten (z.B. TESVOLT, SMA Core1 / STP125, industrielle I/O‑Module, Alpitronic DC‑Schnelllader).",
+      "ru": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "pt": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "nl": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "fr": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "it": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "es": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "pl": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "uk": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers).",
+      "zh-cn": "EnergyBridge is a multi-protocol adapter (Modbus TCP/RTU, MQTT, HTTP/JSON, UDP) that integrates devices via templates (Categories → Manufacturer → Template) and auto-creates states in ioBroker.\n\nSupported (excerpt): PV inverters (Goodwe, SMA, Kostal, Solar-Log, SunSpec …), meters (Janitza, Socomec, Siemens, Eastron, Victron …), EV chargers / wallboxes (go-e, KEBA, ABL, openWB, Webasto, Mennekes …), battery/ESS (FENECON, FoxESS, Kostal, SolaX, Tesla …), heat (TECALOR, LAMBDA, myPV …), IO (Shelly, 1-Wire).\n\nIndustrial templates are intentionally excluded (e.g., TESVOLT, SMA Core1 / STP125, industrial I/O modules, Alpitronic DC fast chargers)."
+    },
+    "authors": [
+      "Nexowatt"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "loglevel": "info",
+    "tier": 2,
+    "icon": "energy-bridge.svg",
+    "extIcon": "https://raw.githubusercontent.com/NexoWatt/ioBroker.energy-bridge/main/admin/energy-bridge.svg",
+    "adminUI": {
+      "config": "html"
+    },
+    "keywords": [
+      "1-wire",
+      "battery",
+      "bridge",
+      "energy",
+      "evcs",
+      "http",
+      "inverter",
+      "meter",
+      "modbus",
+      "mqtt",
+      "pv",
+      "shelly",
+      "udp"
+    ],
+    "type": "energy",
+    "enabled": true,
+    "readme": "README.md",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.20"
+      }
+    ]
+  },
+  "native": {
+    "pollIntervalMs": 5000,
+    "modbusTimeoutMs": 2000,
+    "registerAddressOffset": 0,
+    "devicesJson": []
+  },
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "name": "Connected",
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
+}
