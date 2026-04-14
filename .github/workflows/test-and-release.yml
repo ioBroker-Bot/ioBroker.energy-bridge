@@ -28,7 +28,12 @@ jobs:
       - uses: ioBroker/testing-action-check@v1
         with:
           # Use the current recommended Node.js version for linting
-          node-version: '24.x'
+          node-version: '22.x'
+          # Workaround for sporadic "npm error Exit handler never called" with npm 11 on Node 24
+          package-cache: 'false'
+          install-command: |
+            npm cache clean --force
+            npm install --no-audit --no-fund
           lint: true
 
   # Runs adapter tests on all supported node versions and OSes
@@ -44,7 +49,10 @@ jobs:
       - uses: ioBroker/testing-action-adapter@v1
         with:
           node-version: ${{ matrix.node-version }}
-          os: ${{ matrix.os }}
+          package-cache: 'false'
+          install-command: |
+            npm cache clean --force
+            npm install --no-audit --no-fund
 
   # Deploys the final package to NPM
   # Requires npm "Trusted Publishing" to be configured for this repository
@@ -64,5 +72,9 @@ jobs:
     steps:
       - uses: ioBroker/testing-action-deploy@v1
         with:
-          node-version: '24.x'
+          node-version: '22.x'
+          package-cache: 'false'
+          install-command: |
+            npm cache clean --force
+            npm install --no-audit --no-fund
           github-token: ${{ secrets.GITHUB_TOKEN }}
