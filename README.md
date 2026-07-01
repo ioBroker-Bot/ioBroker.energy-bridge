@@ -96,6 +96,8 @@ It uses the libraries [modbus-serial](https://www.npmjs.com/package/modbus-seria
 
 > Older changelog entries are available in **CHANGELOG_OLD.md**.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
